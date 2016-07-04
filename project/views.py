@@ -238,4 +238,19 @@ def update(request):
 	else:
 		return HttpResponse("Bad Request")
 	
+@csrf_exempt
+def update_check(request):
+	ver_code = request.POST.get("code")
+	ver_name = request.POST.get("name")
+	uniquekey = request.POST.get("haddhogyibhencho")
+	if uniquekey == settings.UNIQUE_KEY:
+		current_ver = 2
+		used_ver = int(ver_code)
+		if used_ver<current_ver:
+			return HttpResponse("Update@1")
+		else:
+			return HttpResponse("No Update")
+	else:
+		return HttpResponse("Bad Request")
+
 

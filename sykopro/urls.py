@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^forgot_password/$', 'project.views.forgot_password', name='forgot_password'),
     url(r'^update_password_user/$', 'project.views.update_password_user', name='update_password_user'),    
     url(r'^update/$', 'project.views.update', name='update'),
+    url(r'^update_check/$', 'project.views.update_check', name='update_check'),
 
 
 
