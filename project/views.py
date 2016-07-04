@@ -268,19 +268,19 @@ def Save_address(request):
 				q1 = User(address1=address)
 				q1.save()
 				return HttpResponse("Success")
-			elif str(instance.address2) == " ":
+			elif not str(instance.address2):
 				q2 = User(address2=address)
 				q2.save()
 				return HttpResponse("Success")			
-			elif str(instance.address3) == " ":
+			elif not str(instance.address3):
 				q3 = User(address3=address)
 				q3.save()
 				return HttpResponse("Success")			
-			elif str(instance.address4) == " ":
+			elif not str(instance.address4):
 				q4 = User(address4=address)
 				q4.save()
 				return HttpResponse("Success")
-			else :
+			else:
 				return HttpResponse("Failure")
 	else:
 		return HttpResponse("Bad Request")
