@@ -1,0 +1,60 @@
+{% load i18n %}
+{% load staticfiles %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="llxlw8snJnzgGp_fOfL-4I3n1ZGvmjh-xDHvRKwWVuQ" />
+    <meta name="msvalidate.01" content="9A9EEC31C6C3D034B31D8AF70B9DE35F" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>{% block head_title %} Lets Tutorials | Find Best Tutors Across Delhi | Home Tutors Across Delhi | Coaching Centres Across Delhi {% endblock %}</title>   
+    <meta name="title" content="Book Private Tuitions Across Delhi, Best Tutors Across Delhi, Best Coaching Institutes Across Delhi, Home Tutors For Class XI-XII, Home Tutors For Primary Classes " >
+    <meta name="description" content="Lets Tutorials is an online platform where students can meet professional tutors to fulfil all their learning needs. Building the Largest Chain of Home Tutors and Coaching Centres Across Delhi to provide learning for all.">
+    <meta name="robots" content="index, follow">    
+    <meta name="author" content="text">
+    <meta name="keywords" content="Lets Tutorials, Home Tuitions Across Delhi, Private Coaching Across Delhi, Coaching Institutes Across Delhi, Book Your Home Tutor Online">
+    <link rel="icon" href="https://s3-us-west-2.amazonaws.com/elasticbeanstalk-us-west-2-644902922622/logo.ico">
+
+
+
+
+    {% include 'head_css.html' %}
+   
+  </head>
+
+
+
+<!-- NAVBAR
+================================================== -->
+  <body>
+    <div class="navbar-wrapper">
+     <div class="container-fluid">    
+      {% include 'navbar1.html' %}
+     </div> 
+    </div> 
+
+
+
+
+    {% include 'carousel.html' %} 
+
+      
+    {% block circles %}
+
+    {% endblock %}
+
+
+    {% include 'footer.html' %}
+
+
+
+
+    {% include 'javascript.html' %}
+
+
+  </body>
+</html>

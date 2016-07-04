@@ -141,6 +141,9 @@ DEFAULT_FROM_EMAIL = 'letstutorials2016@gmail.com'
 
 
 
+UNIQUE_KEY = "humteenomilkarekpapermillkholenge"
+
+
 
 # Static files (CSS, JavaScript, Images)
 
