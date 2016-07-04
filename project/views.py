@@ -213,3 +213,29 @@ def update_password_user(request):
 	else:
 		return HttpResponse("Bad Request")
 		
+@csrf_exempt
+def update(request):
+	uphone=request.POST.get("Contact")
+	uemail=request.POST.get("Email")
+	uname=request.POST.get("Name")
+	uniquekey = request.POST.get("haddhogyibhencho")
+	if uniquekey == settings.UNIQUE_KEY:
+		if(uemail == "Same"):
+			User.objects.filter(phone=uphone).update(name=uname)
+			return HttpResponse("Information Updated Successfully")
+
+		else:
+
+			query1 = User.objects.filter(email_id=uemail)
+			if query1:
+				return HttpResponse("Email already exists")
+			else:
+
+				User.objects.filter(phone=uphone).update(name=uname)
+				User.objects.filter(phone=uphone).update(email_id=uemail)
+				return HttpResponse("Information Updated Successfully")
+
+	else:
+		return HttpResponse("Bad Request")
+	
+
