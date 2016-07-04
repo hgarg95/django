@@ -180,31 +180,36 @@ def update_password_user(request):
 	uemail = request.POST.get("Id")
 	upassword = request.POST.get("Password")
 	uniquekey = request.POST.get("haddhogyibhencho")
-	query1 = User.objects.filter(email_id=uemail)
-	p = User.objects.filter(email_id=uemail).update(password=upassword)
-	d={}
-	dlist=[]
-	q2 = Orders.objects.filter(email_id=uemail)
-	if q2:		
-		for instance1 in q2:
-			d['flag'] = "success"
-			d['order_id'] = instance1.order_id
-			d['amount_paid'] = str(instance1.amount_paid)
-			d['date_of_pickup'] = instance1.date_of_pickup
-			d['paper'] = str(instance1.paper)
-			d['plastic'] = str(instance1.plastic)
-			d['iron'] = str(instance1.iron)
-			d['copper'] = str(instance1.copper)
-			d['aluminium'] = str(instance1.aluminium)
-			d['brass'] = str(instance1.brass)
-			d['old_batteries'] = str(instance1.old_batteries)
-			d['miscellaneous'] = str(instance1.miscellaneous)
-	else:
-		d['flag'] = "failure"
-	for instance in query1:
-		d['name']=instance.name
-		d['phone']=instance.phone
-		d['gender']=instance.gender
-		dlist.append(d.copy())
+	if uniquekey == settings.UNIQUE_KEY:
+		query1 = User.objects.filter(email_id=uemail)
+		p = User.objects.filter(email_id=uemail).update(password=upassword)
+		d={}
+		dlist=[]
+		q2 = Orders.objects.filter(email_id=uemail)
+		if q2:
+			for instance1 in q2:
+				d['flag'] = "success"
+				d['order_id'] = instance1.order_id
+				d['amount_paid'] = str(instance1.amount_paid)
+				d['date_of_pickup'] = instance1.date_of_pickup
+				d['paper'] = str(instance1.paper)
+				d['plastic'] = str(instance1.plastic)
+				d['iron'] = str(instance1.iron)
+				d['copper'] = str(instance1.copper)
+				d['aluminium'] = str(instance1.aluminium)
+				d['brass'] = str(instance1.brass)
+				d['old_batteries'] = str(instance1.old_batteries)
+				d['miscellaneous'] = str(instance1.miscellaneous)
+		else:
+			d['flag'] = "failure"
+		for instance in query1:
+			d['name']=instance.name
+			d['phone']=instance.phone
+			d['gender']=instance.gender
+			dlist.append(d.copy())
 
-	return HttpResponse(json.dumps(dlist))
+		return HttpResponse(json.dumps(dlist))
+
+	else:
+		return HttpResponse("Bad Request")
+		
