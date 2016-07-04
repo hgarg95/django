@@ -264,7 +264,7 @@ def Save_address(request):
 	if uniquekey == settings.UNIQUE_KEY:
 		query = User.objects.filter(email_id=email)
 		for instance in query:
-			if str(instance.address1) == " ":
+			if not str(instance.address1):
 				q1 = User(address1=address)
 				q1.save()
 				return HttpResponse("Success")
