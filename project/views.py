@@ -87,12 +87,12 @@ def admin_login_app(request):
 
 	uemail = request.POST.get("Id")
 	upassword = request.POST.get("Password")
-    uniquekey = request.POST.get("haddhogyibhencho")
-    if uniquekey == settings.UNIQUE_KEY:
-		if uemail != "we3@sykopro" && upassword != "sykokabadi":
+	uniquekey = request.POST.get("haddhogyibhencho")
+	if uniquekey == settings.UNIQUE_KEY:
+		if uemail != "we3@sykopro" and upassword != "sykokabadi":
 			d={}
 			dlist=[]
-		d["name"]="Invalid Username OR Password"
+			d["name"]="Invalid Username OR Password"
 			dlist.append(d)
 			return HttpResponse(json.dumps(dlist))
 
@@ -112,8 +112,8 @@ def user_login_app(request):
 
 	uemail = request.POST.get("Id")
 	upassword = request.POST.get("Password")
-    uniquekey = request.POST.get("haddhogyibhencho")
-    if uniquekey == settings.UNIQUE_KEY:
+	uniquekey = request.POST.get("haddhogyibhencho")
+	if uniquekey == settings.UNIQUE_KEY:
 		query1 = User.objects.filter(email_id=uemail).filter(password=upassword)
 		if not query1:
 			d={}
@@ -157,8 +157,8 @@ def user_login_app(request):
 @csrf_exempt
 def forgot_password(request):
 	email = request.POST.get("email")
-    uniquekey = request.POST.get("haddhogyibhencho")
-    if uniquekey == settings.UNIQUE_KEY:
+	uniquekey = request.POST.get("haddhogyibhencho")
+	if uniquekey == settings.UNIQUE_KEY:
 		query2 = User.objects.filter(email_id=email)
 		if not query2:
 			return HttpResponse("Failure")
@@ -171,8 +171,7 @@ def forgot_password(request):
 		data = urllib2.urlopen(cheapsms_url)
 		res = ""+str(contact)+"@"+str(otp)+""
 		return HttpResponse(res)
-
-    else:
-    	return HttpResponse("Bad Request")
+	else:
+		return HttpResponse("Bad Request")
 
 
