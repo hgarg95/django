@@ -286,15 +286,27 @@ def address_list(request):
 	email=request.POST.get("email")
 	uniquekey = request.POST.get("haddhogyibhencho")
 	if uniquekey == settings.UNIQUE_KEY:
-		query = User.objects.filter(email_id="abc@abc.com")
+		query = User.objects.filter(email_id=email)
 		d={}
 		dlist=[]
 		lst = []
 		for instance in query:
-			lst.append(instance.address1)
-			lst.append(instance.address2)
-			lst.append(instance.address3)
-			lst.append(instance.address4)
+			if not str(instance.address1):
+				lst.append("Sykopro")
+			else:
+				lst.append(instance.address1)
+			if not str(instance.address2):
+				lst.append("Sykopro")
+			else:
+				lst.append(instance.address2)
+			if not str(instance.address3):
+				lst.append("Sykopro")
+			else:
+				lst.append(instance.address3)
+			if not str(instance.address4):
+				lst.append("Sykopro")
+			else:
+				lst.append(instance.address4)
 		if query:		
 			for num in range(1,5):
 				for instance in query:
