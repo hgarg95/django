@@ -289,13 +289,16 @@ def address_list(request):
 		query = User.objects.filter(email_id=email)
 		d={}
 		dlist=[]
-		for num in range(1,5):
-			for instance in query:
-				q = [instance.address1,instance.address2,instance.address3,instance.address4]
-				if not q[num-1]:
-					d['address'] = q[num-1]
-				dlist.append(d.copy())
-		return HttpResponse(json.dumps(dlist))
+		if query:		
+			for num in range(1,5):
+				for instance in query:
+					q = [instance.address1,instance.address2,instance.address3,instance.address4]
+					if not str(q[num-1]):
+						d['address'] = q[num-1]
+					dlist.append(d.copy())
+			return HttpResponse(json.dumps(dlist))
+		else:
+			return HttpResponse(json.dumps(dlist))
 	else:
 		return HttpResponse("Bad Request")
 		
