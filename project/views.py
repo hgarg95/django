@@ -256,33 +256,33 @@ def update_check(request):
 
 
 
-@csrf_exempt
-def Save_address(request):
-	address = request.POST.get("Address")
-	email = request.POST.get("email")
-	uniquekey = request.POST.get("haddhogyibhencho")
-	if uniquekey == settings.UNIQUE_KEY:
-		query = User.objects.filter(email_id=email)
-		for instance in query:
-			if not str(instance.address1):
-				q1 = User(address1=address)
-				q1.save()
-				return HttpResponse("Success")
-			elif not str(instance.address2):
-				q2 = User(address2=address)
-				q2.save()
-				return HttpResponse("Success")			
-			elif not str(instance.address3):
-				q3 = User(address3=address)
-				q3.save()
-				return HttpResponse("Success")			
-			elif not str(instance.address4):
-				q4 = User(address4=address)
-				q4.save()
-				return HttpResponse("Success")
-			else:
-				return HttpResponse("Failure")
-	else:
-		return HttpResponse("Bad Request")
+# @csrf_exempt
+# def Save_address(request):
+# 	address = request.POST.get("Address")
+# 	email = request.POST.get("email")
+# 	uniquekey = request.POST.get("haddhogyibhencho")
+# 	if uniquekey == settings.UNIQUE_KEY:
+# 		query = User.objects.filter(email_id=email)
+# 		for instance in query:
+# 			if not str(instance.address1):
+# 				q1 = User(address1=address)
+# 				q1.save()
+# 				return HttpResponse("Success")
+# 			elif not str(instance.address2):
+# 				q2 = User(address2=address)
+# 				q2.save()
+# 				return HttpResponse("Success")			
+# 			elif not str(instance.address3):
+# 				q3 = User(address3=address)
+# 				q3.save()
+# 				return HttpResponse("Success")			
+# 			elif not str(instance.address4):
+# 				q4 = User(address4=address)
+# 				q4.save()
+# 				return HttpResponse("Success")
+# 			else:
+# 				return HttpResponse("Failure")
+# 	else:
+# 		return HttpResponse("Bad Request")
 
 
