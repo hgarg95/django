@@ -289,11 +289,16 @@ def address_list(request):
 		query = User.objects.filter(email_id=email)
 		d={}
 		dlist=[]
+		lst = []
+		for instance in query:
+			lst.append(instance.address1)
+			lst.append(instance.address2)
+			lst.append(instance.address3)
+			lst.append(instance.address4)
 		if query:		
 			for num in range(1,5):
-				m = "address"+str(num)+""
 				for instance in query:
-					d['address'] = instance.m
+					d['address'] = lst[num-1]
 					dlist.append(d.copy())
 			return HttpResponse(json.dumps(dlist))
 		else:
