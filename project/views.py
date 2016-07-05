@@ -318,4 +318,25 @@ def address_list(request):
 	else:
 		return HttpResponse("Bad Request")
 		
+@csrf_exempt
+def remove_address(request):
+	email=request.POST.get("email")
+	address = request.POST.get("address")
+	position = request.POST.get("position")
+	uniquekey = request.POST.get("haddhogyibhencho")
+	if uniquekey == settings.UNIQUE_KEY:
+		if position == 1:
+			User.objects.filter(email_id=email).update(address1="")
+		if position == 2:
+			User.objects.filter(email_id=email).update(address2="")
+		if position == 3:
+			User.objects.filter(email_id=email).update(address3="")
+		if position == 4:
+			User.objects.filter(email_id=email).update(address4="")
+		return HttpResponse("Successfully Deleted")
+	else:
+		return HttpResponse("Bad Request")
+
+
+
 
