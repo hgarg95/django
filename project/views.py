@@ -292,20 +292,12 @@ def address_list(request):
 		for instance in query:
 			if instance.address1 != None:
 				d['address1'] = instance.address1
-			else:
-				d['address1'] = "Null"
 			if instance.address2 != None:
 				d['address2'] = instance.address2
-			else:
-				d['address2'] = "Null"
 			if instance.address3 != None:
 				d['address3'] = instance.address3
-			else:
-				d['address3'] = "Null"
 			if instance.address4 != None:
 				d['address4'] = instance.address4
-			else:
-				d['address4'] = "Null"
 			dlist.append(d.copy())
 		return HttpResponse(json.dumps(dlist))
 	else:
