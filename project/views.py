@@ -292,7 +292,7 @@ def address_list(request):
 		for num in range(1,5):
 			for instance in query:
 				q = [instance.address1,instance.address2,instance.address3,instance.address4]
-				if q[num-1] != None:
+				if not q[num-1]:
 					d['address'] = q[num-1]
 				dlist.append(d.copy())
 		return HttpResponse(json.dumps(dlist))
