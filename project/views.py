@@ -262,7 +262,7 @@ def Save_address(request):
 	email = request.POST.get("email")
 	uniquekey = request.POST.get("haddhogyibhencho")
 	if uniquekey == settings.UNIQUE_KEY:
-		query = .updateUser.objects.filter(email_id=email)
+		query = User.objects.filter(email_id=email)
 		for instance in query:
 			if not str(instance.address1):
 				q1 = User.objects.filter(email_id=email).update(address1=address)

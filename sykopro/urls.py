@@ -21,8 +21,8 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^$', 'project.views.home', name='home'),
-    url(r'^home/$', 'project.views.home', name='home'),
+    # url(r'^$', 'project.views.home', name='home'),
+    # url(r'^home/$', 'project.views.home', name='home'),
     url(r'^Otp_app/$', 'project.views.Otp_app', name='Otp_app'),
     url(r'^signup_app/$', 'project.views.signup_app', name='signup_app'),
     url(r'^admin_login_app/$', 'project.views.admin_login_app', name='admin_login_app'),    
