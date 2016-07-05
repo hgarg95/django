@@ -326,13 +326,13 @@ def remove_address(request):
 	uniquekey = request.POST.get("haddhogyibhencho")
 	if uniquekey == settings.UNIQUE_KEY:
 		if int(position) == 1:
-			User.objects.filter(email_id=email).update(address1="Sykopro")
+			User.objects.filter(email_id=email).update(address1="")
 		if int(position) == 2:
-			User.objects.filter(email_id=email).update(address2="Sykopro")
+			User.objects.filter(email_id=email).update(address2="")
 		if int(position) == 3:
-			User.objects.filter(email_id=email).update(address3="Sykopro")
+			User.objects.filter(email_id=email).update(address3="")
 		if int(position) == 4:
-			User.objects.filter(email_id=email).update(address4="Sykopro")
+			User.objects.filter(email_id=email).update(address4="")
 		return HttpResponse("Successfully Deleted")
 	else:
 		return HttpResponse("Bad Request")
