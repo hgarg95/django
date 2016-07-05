@@ -291,8 +291,9 @@ def address_list(request):
 		dlist=[]
 		if query:		
 			for num in range(1,5):
+				m = "address"+str(num)+""
 				for instance in query:
-					d['address'] = instance.address1
+					d['address'] = instance.m
 					dlist.append(d.copy())
 			return HttpResponse(json.dumps(dlist))
 		else:
