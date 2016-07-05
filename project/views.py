@@ -294,7 +294,7 @@ def address_list(request):
 				for instance in query:
 					q = [instance.address1,instance.address2,instance.address3,instance.address4]
 					if str(q[num-1]):
-						d['address'] = q[num-1]
+						d['address'] = instance.address1
 					dlist.append(d.copy())
 			return HttpResponse(json.dumps(dlist))
 		else:
