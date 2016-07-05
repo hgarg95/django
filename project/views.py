@@ -21,7 +21,7 @@ import sys
 from django.apps import apps
 
 
-from .models import Orders,RateList
+from .models import User,Orders,RateList
 
 
 # #Create your Views Here.
