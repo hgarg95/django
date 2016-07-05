@@ -286,7 +286,7 @@ def address_list(request):
 	email=request.POST.get("email")
 	uniquekey = request.POST.get("haddhogyibhencho")
 	if uniquekey == settings.UNIQUE_KEY:
-		query = User.objects.filter(email_id=email)
+		query = User.objects.filter(email_id="abc@abc.com")
 		d={}
 		dlist=[]
 		lst = []
