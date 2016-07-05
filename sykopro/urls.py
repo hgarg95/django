@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'^update/$', 'project.views.update', name='update'),
     url(r'^update_check/$', 'project.views.update_check', name='update_check'),
     url(r'^Save_address/$', 'project.views.Save_address', name='Save_address'),
+    url(r'^address_list/$', 'project.views.address_list', name='address_list'),
 
 
 
