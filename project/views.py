@@ -292,9 +292,10 @@ def address_list(request):
 		if query:		
 			for num in range(1,5):
 				for instance in query:
-					q = [instance.address1,instance.address2,instance.address3,instance.address4]
+					q = ["aa^^301, Jail RdMayapuri Industrial Area Phase II, MayapuriNew Delhi, Delhi 110058^^ABC^^Goyalsons"
+					,instance.address2,instance.address3,instance.address4]
 					if not str(q[num-1]):
-						d['address'] = q[num-1]
+						d['address'] = q[0]
 					dlist.append(d.copy())
 			return HttpResponse(json.dumps(dlist))
 		else:
