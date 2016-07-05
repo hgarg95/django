@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User,Orders,RateList
+from .models import Orders,RateList
 
 # Register your models here.
 class OrdersAdmin(admin.ModelAdmin):
@@ -9,7 +9,7 @@ class OrdersAdmin(admin.ModelAdmin):
 
 
 
-admin.site.register(User)
+# admin.site.register(User)
 admin.site.register(Orders,OrdersAdmin)
 admin.site.register(RateList)
 
