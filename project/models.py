@@ -38,7 +38,7 @@ class Orders(models.Model):
 	amount_paid = models.FloatField(null=True)
 	request_for = models.CharField(max_length=300)
 	confirmation = models.BooleanField(default=False)
-	date_of_pickup = models.DateTimeField(null=True)
+	date_of_pickup = models.CharField(max_length=50,null=True)
 
     # time = models.TimeField(input_formats='%I:%M %p',)
     # time = TimeField(widget=TimeInput(format='%I:%M %p')
