@@ -375,7 +375,7 @@ def pickup(request):
 
 @csrf_exempt
 def pickup_email(request):
-	email = request.POST.get("email")
+	email_id = request.POST.get("email")
 	uniquekey = request.POST.get("haddhogyibhencho")
 	address = request.POST.get("address")
 	name = request.POST.get("name")
