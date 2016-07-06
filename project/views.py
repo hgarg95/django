@@ -318,24 +318,93 @@ def address_list(request):
 	else:
 		return HttpResponse("Bad Request")
 		
+# @csrf_exempt
+# def remove_address(request):
+# 	email=request.POST.get("email")
+# 	address = request.POST.get("address")
+# 	position = request.POST.get("position")
+# 	uniquekey = request.POST.get("haddhogyibhencho")
+# 	if uniquekey == settings.UNIQUE_KEY:
+# 		if int(position) == 1:
+# 			User.objects.filter(email_id=email).update(address1="")
+# 		if int(position) == 2:
+# 			User.objects.filter(email_id=email).update(address2="")
+# 		if int(position) == 3:
+# 			User.objects.filter(email_id=email).update(address3="")
+# 		if int(position) == 4:
+# 			User.objects.filter(email_id=email).update(address4="")
+# 		return HttpResponse("Successfully Deleted")
+# 	else:
+# 		return HttpResponse("Bad Request")
+
+
+
+
+
+
+
 @csrf_exempt
-def remove_address(request):
-	email=request.POST.get("email")
+def pickup(request):
+	email = request.POST.get("email")
 	address = request.POST.get("address")
-	position = request.POST.get("position")
+	name = request.POST.get("name")
+	phone = request.POST.get("phone")
+	request_for = request.POST.get("request_for")
+	date_of_pickup = request.POST.get("date_of_pickup")
 	uniquekey = request.POST.get("haddhogyibhencho")
 	if uniquekey == settings.UNIQUE_KEY:
-		if int(position) == 1:
-			User.objects.filter(email_id=email).update(address1="")
-		if int(position) == 2:
-			User.objects.filter(email_id=email).update(address2="")
-		if int(position) == 3:
-			User.objects.filter(email_id=email).update(address3="")
-		if int(position) == 4:
-			User.objects.filter(email_id=email).update(address4="")
-		return HttpResponse("Successfully Deleted")
+		c=Orders.objects.count()
+
+		order_id="GOSYKO"+str(c+1)+""
+
+		query = Orders(email_id=email, address=address, name=name, phone=phone, request_for=request_for, order_id=order_id, date_of_pickup=date_of_pickup)
+		query.save()
+
+		# url_sms="http://198.24.149.4/API/pushsms.aspx?loginID=9015267601&password=815380&mobile="+str(s_contact)+"&text="+str(text)+"%20"+str(text1)+"%20"+str(text2)+"%20"+str(text3)+"&senderid=DEMOOO&route_id=7&Unicode=0"
+		# data1 = urllib2.urlopen(url_sms)	
+		# url_sms_2="http://198.24.149.4/API/pushsms.aspx?loginID=9015267601&password=815380&mobile="+str(t_contact)+"&text="+str(text)+"%20"+str(text1)+"%20"+str(text2)+"%20"+str(text3)+"&senderid=DEMOOO&route_id=7&Unicode=0"
+		# data2 = urllib2.urlopen(url_sms_2)			
+
+		return HttpResponse("Success")
 	else:
 		return HttpResponse("Bad Request")
+		
+
+
+
+
+@csrf_exempt
+def pickup_email(request):
+	# email = request.POST.get("email")
+	# uniquekey = request.POST.get("haddhogyibhencho")
+	# address = request.POST.get("address")
+	# name = request.POST.get("name")
+	# phone = request.POST.get("phone")
+	# request_for = request.POST.get("request_for")
+	# date_of_pickup = request.POST.get("date_of_pickup")
+	# if uniquekey == settings.UNIQUE_KEY:
+	email = settings.DEFAULT_FROM_EMAIL
+	connection = mail.get_connection()
+	connection.open()
+	email1 = mail.EmailMessage('Subject', 'Here is the message', email, ['aman1998garg@gmail.com'], connection=connection)
+	email1.send()
+	email2 = mail.EmailMessage('Subject here', 'Here is the message', email, ['garg1995speaker@gmail.com'])
+	email2.send()
+	connection.close()	
+	return HttpResponse("Success")
+	# else:
+	# 	return HttpResponse("Bad Request")
+		
+
+
+
+
+
+
+
+
+
+
 
 
 

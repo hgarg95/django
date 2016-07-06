@@ -134,9 +134,9 @@ USE_TZ = True
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'letstutorials2016@gmail.com'
-EMAIL_HOST_PASSWORD = 'cholebhature19981995himaman'
-DEFAULT_FROM_EMAIL = 'letstutorials2016@gmail.com'
+EMAIL_HOST_USER = 'teamsykopro@gmail.com'
+EMAIL_HOST_PASSWORD = 'sykokabadi'
+DEFAULT_FROM_EMAIL = 'teamsykopro@gmail.com'
 # DEFAULT_TO_EMAIL = ''
 
 
