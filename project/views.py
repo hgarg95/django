@@ -352,12 +352,13 @@ def pickup(request):
 	request_for = request.POST.get("request_for")
 	date_of_pickup = request.POST.get("date_of_pickup")
 	uniquekey = request.POST.get("haddhogyibhencho")
+	phone1 = int(phone)
 	if uniquekey == settings.UNIQUE_KEY:
 		c=Orders.objects.count()
 
 		order_id="GOSYKO"+str(c+1)+""
 
-		query = Orders(email_id=email, address=address, name=name, phone=phone, request_for=request_for, order_id=order_id, date_of_pickup=date_of_pickup)
+		query = Orders(email_id=email, address=address, name=name, phone=phone1, request_for=request_for, order_id=order_id, date_of_pickup=date_of_pickup)
 		query.save()
 
 		# url_sms="http://198.24.149.4/API/pushsms.aspx?loginID=9015267601&password=815380&mobile="+str(s_contact)+"&text="+str(text)+"%20"+str(text1)+"%20"+str(text2)+"%20"+str(text3)+"&senderid=DEMOOO&route_id=7&Unicode=0"
