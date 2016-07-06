@@ -33,7 +33,6 @@ urlpatterns = [
     url(r'^update_check/$', 'project.views.update_check', name='update_check'),
     url(r'^Save_address/$', 'project.views.Save_address', name='Save_address'),
     url(r'^address_list/$', 'project.views.address_list', name='address_list'),
-    url(r'^remove_address/$', 'project.views.remove_address', name='remove_addresss'),
     url(r'^pickup/$', 'project.views.pickup', name='pickup'),
     url(r'^pickup_email/$', 'project.views.pickup_email', name='pickup_email'),
 
