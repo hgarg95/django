@@ -375,25 +375,25 @@ def pickup(request):
 
 @csrf_exempt
 def pickup_email(request):
-	# email = request.POST.get("email")
-	# uniquekey = request.POST.get("haddhogyibhencho")
-	# address = request.POST.get("address")
-	# name = request.POST.get("name")
-	# phone = request.POST.get("phone")
-	# request_for = request.POST.get("request_for")
-	# date_of_pickup = request.POST.get("date_of_pickup")
-	# if uniquekey == settings.UNIQUE_KEY:
-	email = settings.DEFAULT_FROM_EMAIL
-	connection = mail.get_connection()
-	connection.open()
-	email1 = mail.EmailMessage('Subject', 'Here is the message', email, ['aman1998garg@gmail.com'], connection=connection)
-	email1.send()
-	email2 = mail.EmailMessage('Subject here', 'Here is the message', email, ['garg1995speaker@gmail.com'])
-	email2.send()
-	connection.close()	
-	return HttpResponse("Success")
-	# else:
-	# 	return HttpResponse("Bad Request")
+	email = request.POST.get("email")
+	uniquekey = request.POST.get("haddhogyibhencho")
+	address = request.POST.get("address")
+	name = request.POST.get("name")
+	phone = request.POST.get("phone")
+	request_for = request.POST.get("request_for")
+	date_of_pickup = request.POST.get("date_of_pickup")
+	if uniquekey == settings.UNIQUE_KEY:
+		email = settings.DEFAULT_FROM_EMAIL
+		connection = mail.get_connection()
+		connection.open()
+		email1 = mail.EmailMessage('Subject', 'Here is the message', email, ['aman1998garg@gmail.com'], connection=connection)
+		email1.send()
+		email2 = mail.EmailMessage('Subject here', 'Here is the message', email, ['garg1995speaker@gmail.com'])
+		email2.send()
+		connection.close()	
+		return HttpResponse("Success")
+	else:
+		return HttpResponse("Bad Request")
 		
 
 
