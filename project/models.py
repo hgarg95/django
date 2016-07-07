@@ -47,13 +47,13 @@ class Orders(models.Model):
 
 
 class RateList(models.Model):
-	paper = models.FloatField(null=True)
-	plastic = models.FloatField(null=True)
-	copper = models.FloatField(null=True)
-	aluminium = models.FloatField(null=True)
-	brass = models.FloatField(null=True)
-	old_batteries = models.FloatField(null=True)
-	iron = models.FloatField(null=True)
-	miscellaneous = models.FloatField(null=True)
+	paper = models.CharField(max_length=50,null=True)
+	plastic = models.CharField(max_length=50,null=True)
+	copper = models.CharField(max_length=50,null=True)
+	aluminium = models.CharField(max_length=50,null=True)
+	brass = models.CharField(max_length=50,null=True)
+	old_batteries = models.CharField(max_length=50,null=True)
+	iron = models.CharField(max_length=50,null=True)
+	miscellaneous = models.CharField(max_length=50,null=True)
 	def __unicode__(self): #__str__
 		return self.paper
