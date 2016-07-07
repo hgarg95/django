@@ -255,7 +255,6 @@ def update_check(request):
 
 
 
-
 @csrf_exempt
 def Save_address(request):
 	address = request.POST.get("Address")
@@ -280,6 +279,32 @@ def Save_address(request):
 				return HttpResponse("Failure")
 	else:
 		return HttpResponse("Bad Request")
+
+@csrf_exempt
+def rate_list(request):
+	uniquekey = request.POST.get("haddhogyibhencho")
+	if uniquekey == settings.UNIQUE_KEY:
+		q = RateList.objects.all()
+		d={}
+		dlist=[]	
+		for instance in q:
+			d['paper'] = instance.paper
+			d['plastic'] = instance.plastic
+			d['aluminium'] = instance.aluminium
+			d['copper'] = instance.copper
+			d['brass'] = instance.brass
+			d['old_batteries'] = instance.old_batteries
+			d['iron'] = instance.iron
+			d['miscellaneous'] = instance.miscellaneous
+			dlist.append(d.copy())
+
+			return HttpResponse(json.dumps(dlist))
+	else:
+		return HttpResponse("Bad Request")
+			
+
+
+
 
 @csrf_exempt
 def address_list(request):
