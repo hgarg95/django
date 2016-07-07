@@ -297,11 +297,10 @@ def rate_list(request):
 			d['iron'] = instance.iron
 			d['miscellaneous'] = instance.miscellaneous
 			dlist.append(d.copy())
-
-			return HttpResponse(json.dumps(dlist))
+		return HttpResponse(json.dumps(dlist))
 	else:
 		return HttpResponse("Bad Request")
-			
+
 
 
 
