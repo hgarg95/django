@@ -303,6 +303,30 @@ def rate_list(request):
 
 
 
+@csrf_exempt
+def orders_list(request):
+	email=request.POST.get("email")
+	uniquekey = request.POST.get("haddhogyibhencho")
+	if uniquekey == settings.UNIQUE_KEY:
+		query = Orders.objects.filter(email_id=email)
+		d={}
+		dlist=[]
+		for instance in query:
+			d['address'] = instance.address
+			d['date'] = instance.date_of_pickup
+			d['amount'] = instance.amount_paid
+			d['order_id'] = instance.order_id
+			if not instance.amount_paid:
+				d['status'] = "To be picked up on"
+			else:
+				d['status'] = "Picked Up On"
+			dlist.append(d.copy())
+		return HttpResponse(json.dumps(dlist))
+	else:
+		return HttpResponse("Bad Request")
+		
+
+
 
 
 @csrf_exempt

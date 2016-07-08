@@ -35,7 +35,7 @@ urlpatterns = [
     url(r'^address_list/$', 'project.views.address_list', name='address_list'),
     url(r'^pickup/$', 'project.views.pickup', name='pickup'),
     url(r'^pickup_email/$', 'project.views.pickup_email', name='pickup_email'),
-    url(r'^rate_list/$', 'project.views.rate_list', name='rate_list'),
+    url(r'^orders_list/$', 'project.views.orders_list', name='orders_list'),
 
 
 
