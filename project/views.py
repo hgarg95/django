@@ -314,12 +314,13 @@ def orders_list(request):
 		for instance in query:
 			d['address'] = instance.address
 			d['date'] = instance.date_of_pickup
-			d['amount'] = instance.amount_paid
 			d['order_id'] = instance.order_id
 			if not instance.amount_paid:
 				d['status'] = "To be picked up on"
+				d['amount'] = "Null"
 			else:
 				d['status'] = "Picked Up On"
+				d['amount'] = instance.amount_paid
 			dlist.append(d.copy())
 		return HttpResponse(json.dumps(dlist))
 	else:
