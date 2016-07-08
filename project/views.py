@@ -327,6 +327,39 @@ def orders_list(request):
 		return HttpResponse("Bad Request")
 		
 
+@csrf_exempt
+def pickup_description(request):
+	email = request.POST.get("email")
+	order = request.POST.get("order_id")
+	uniquekey = request.POST.get("haddhogyibhencho")
+	if uniquekey == settings.UNIQUE_KEY:
+		query = Orders.objects.filter(email_id=email,order_id=order)
+		d={}
+		dlist=[]
+		for instance in query:
+			d['address'] = instance.address
+			d['date'] = instance.date_of_pickup
+			d['amount'] = instance.amount_paid
+			d['paper'] = instance.paper
+			d['plastic'] = instance.plastic
+			d['aluminium'] = instance.aluminium
+			d['copper'] = instance.copper
+			d['brass'] = instance.brass
+			d['old_batteries'] = instance.old_batteries
+			d['iron'] = instance.iron
+			d['miscellaneous'] = instance.miscellaneous
+			dlist.append(d.copy())
+			return HttpResponse(json.dumps(dlist))
+	else:
+		return HttpResponse("Bad Request")
+				
+
+
+			
+
+
+
+
 
 
 

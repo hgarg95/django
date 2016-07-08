@@ -37,6 +37,7 @@ urlpatterns = [
     url(r'^pickup_email/$', 'project.views.pickup_email', name='pickup_email'),
     url(r'^orders_list/$', 'project.views.orders_list', name='orders_list'),
     url(r'^rate_list/$', 'project.views.rate_list', name='rate_list'),
+    url(r'^pickup_description/$', 'project.views.pickup_description', name='pickup_description'),
 
 
 
