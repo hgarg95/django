@@ -99,11 +99,12 @@ def signup_app(request):
 	uemail =  request.POST.get("email")	
 	uname =  request.POST.get("name")
 	uphone =  request.POST.get("phone")
+	device_id = request.POST.get("device_id")
 	upassword =  request.POST.get("password")
 	ugender = request.POST.get("gender")
 	uniquekey = request.POST.get("haddhogyibhencho")
 	if uniquekey == settings.UNIQUE_KEY:	
-		p = User(email_id=uemail, password=upassword, name=uname, phone=uphone, gender=ugender)
+		p = User(email_id=uemail, password=upassword, name=uname, phone=uphone, gender=ugender,device_id=device_id)
 		p.save()
 		return HttpResponse("Successfully registered")
 
