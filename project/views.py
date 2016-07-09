@@ -281,7 +281,7 @@ def send_notify(request):
 		reg_id = instance.device_id
 		dlist.append(reg_id)
 	# gcm.plaintext_request(registration_id=reg_id,data=data)
-	response = json.dumps(gcm.json_request(registration_ids=reg_id, data=data))
+	response = json.dumps(gcm.json_request(registration_ids=dlist, data=data))
 	return HttpResponse(response)    
 		
 @csrf_exempt
