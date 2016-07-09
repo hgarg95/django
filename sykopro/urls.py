@@ -21,8 +21,8 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
-    # url(r'^$', 'project.views.home', name='home'),
-    # url(r'^home/$', 'project.views.home', name='home'),
+    url(r'^$', 'project.views.home', name='home'),
+    url(r'^home/$', 'project.views.home', name='home'),
     url(r'^Otp_app/$', 'project.views.Otp_app', name='Otp_app'),
     url(r'^signup_app/$', 'project.views.signup_app', name='signup_app'),
     url(r'^admin_login_app/$', 'project.views.admin_login_app', name='admin_login_app'),    
@@ -38,6 +38,10 @@ urlpatterns = [
     url(r'^orders_list/$', 'project.views.orders_list', name='orders_list'),
     url(r'^rate_list/$', 'project.views.rate_list', name='rate_list'),
     url(r'^pickup_description/$', 'project.views.pickup_description', name='pickup_description'),
+    url(r'^contact/$', 'project.views.contact', name='contact'),
+    url(r'^careers/$', 'project.views.careers', name='careers'),
+    url(r'^send_notify/$', 'project.views.send_notify', name='send_notify'),
+    
 
 
 

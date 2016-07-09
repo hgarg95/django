@@ -22,21 +22,50 @@ from django.apps import apps
 
 
 from .models import User,Orders,RateList
+from .forms import ContactForm, CareersForm
 
 
 #Create your Views Here.
 
 
 
-# def home(request):
+def home(request):
 
-# 	# m = request.session.get("name")
-# 	# m1 = request.session.get("name1")
-# 	# context={
-# 	# "m":m,
-# 	# "m1":m1,
-# 	# }
-# 	return render(request, "home.html", {})
+	# m = request.session.get("name")
+	# m1 = request.session.get("name1")
+	# context={
+	# "m":m,
+	# "m1":m1,
+	# }
+	return render(request, "home.html", {})
+
+
+
+
+
+def contact(request):
+	# if request.method == 'POST':
+	# 	ustandard = request.POST.get("standard")
+		
+	# 	p = standard(standard="First")
+	# 	p.save()
+		
+
+	return render(request, "contact.html", {"form":ContactForm})	
+
+
+
+def careers(request):
+
+		
+	# 	p = standard(standard="First")
+	# 	p.save()
+		
+
+	return render(request, "careers.html", {"form":CareersForm})
+
+
+
 
 
 
@@ -212,6 +241,46 @@ def update_password_user(request):
 
 	else:
 		return HttpResponse("Bad Request")
+
+
+def send_notify(request):
+	# d={}
+	# dlist=[]
+
+	# message = { "notification": 
+	# {
+ #    'message': 'Hello, this is your notification message, We use this variable to store the message text.',
+ #    'title': 'This place is for title of the notification',
+ #    'tickerText': 'Ticker text for your notifications, Lollipop does not show ticker text by default',
+ #    'BigpictureIcon': 'https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png',
+ #    'largeIcon': 'large_icon_url',
+ #    'smallIcon': 'large_icon_url',
+	#  "to" : "eB2R2ntrcvI:APA91bEhjH8hyR464L278562t9Sk1hvRrhBC_LCcKrCKaWVWvPEibDAWHbhWJjtlYZlZMz-yTKImb208wCnwTBWXlTOlKAfwUtAtHrv2KqLDTvVYut7UGvdw7YkzAjKVyXvkHfERrcQT",
+	# }
+	# }
+	# requests.post('https://gcm-http.googleapis.com/gcm/send', 
+	#   data = json.dumps(message), 
+	#   headers = {'Authorization': "AIzaSyBrgfg_u2BTW5wwJzZ3qRJuhAIsN8kmDlI",'Content-Type': 'application/json'})
+
+
+	gcm = GCM("AIzaSyDcYAL_bo29kyisezHQRWfuGxuQv4zDieo")
+	data = {'message': 'Hello, this is your notification message, We use this variable to store the message text.',
+	        'title': 'This place is for title of the notification',
+	        'tickerText': 'Ticker text for your notifications, Lollipop does not show ticker text by default',
+	        'BigpictureIcon': 'https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png',
+	        'largeIcon': 'large_icon_url',
+	        'smallIcon': 'small_icon_url'}
+
+	# reg_id = ["db6EelYVv7g:APA91bHfLf3_zThHolzP1UlVyElgRVxP7iY8gBAYDH1hHGdw1mCaP8uls4OMMYhcpKbFu3hYx8rlasRHmn3JI15VptKlLy7dmsfjjlM-ShEsLkzFjeOeE9qa6Od-DMC0BNO2KvNzDR7P",
+	#           "fnygMEH_lko:APA91bGBvRIRWtn7ZCQI0FlMhWaX6cFJE5AfbNpXPpuS_Zk6MHyNZYpkfKfsP6mn_X8mwEol9wdzU3cX8Fgbde-cKSj_-j9YfXVkDaVwN2InRKWThxEjexTKk2ZGn3Fgtsll1nO2f0PR", 
+	#           "eB2R2ntrcvI:APA91bEhjH8hyR464L278562t9Sk1hvRrhBC_LCcKrCKaWVWvPEibDAWHbhWJjtlYZlZMz-yTKImb208wCnwTBWXlTOlKAfwUtAtHrv2KqLDTvVYut7UGvdw7YkzAjKVyXvkHfERrcQT"]
+	dlist=[]
+	query = User.objects.all()
+	for instance in query:
+		reg_id = instance.device_id
+		dlist.append(reg_id)
+	response = json.dumps(gcm.json_request(registration_ids=dlist, data=data))
+	return HttpResponse(response)    
 		
 @csrf_exempt
 def update(request):

@@ -12,7 +12,8 @@ class User(models.Model):
 	gender = models.CharField(max_length=50, null=True)
 	address2 = models.CharField(max_length=500)
 	address3 = models.CharField(max_length=500)
-	address4 = models.CharField(max_length=500)		
+	address4 = models.CharField(max_length=500)
+	device_id = models.CharField(max_length=1000, null=True, default="Sykopro")		
 
     # time = models.TimeField(input_formats='%I:%M %p',)
     # time = TimeField(widget=TimeInput(format='%I:%M %p')

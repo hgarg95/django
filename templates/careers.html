@@ -1,0 +1,79 @@
+
+    
+{% load staticfiles %} 
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>{% block head_title %}Careers @ Lets Tutorials | Join Us as a Tutor for Career Opportunities {% endblock %}</title>
+    <meta name="title" content="Careers @ Lets Tutorials. Join Us as a Tutor for Career Opportunities ">
+    <meta name="description" content="If Teaching is your Passion, Lets Tutorials is your Destination. Join Us as a Tutor for Free and Gain Experience, Love of Students and Money.">
+    <meta name="robots" content="index, follow">    
+    <meta name="author" content="text">
+    <meta name="keywords" content="Join Us as Tutor, Home Tutor, Coaching Institute, Career Opportunities in Teaching Sector">
+    <link rel="icon" href="https://s3-us-west-2.amazonaws.com/elasticbeanstalk-us-west-2-644902922622/logo.ico">
+
+
+    
+
+
+    {% include 'head_css.html' %}
+
+  </head>
+
+
+{% include 'navbar1.html' %}
+
+
+  <div class="row featurette" style="margin-left:0px;margin-right:0px;margin-top:60px;">
+    <div class="col-md-5" style="border:3px;">
+      <img class="featurette-image img-responsive center-block" title="Make Some Extra Income" src="https://s3-us-west-2.amazonaws.com/elasticbeanstalk-us-west-2-644902922622/business-money-pink-coins1.jpg" alt="Earn Income by Joining Us as a Tutor">
+    </div>    
+    <div class="col-md-7">
+      <h2 class="featurette-heading">Join Us as a Tutor. <span class="text-muted">Make Extra Income With Lets Tutorials</span></h2>
+      <p class="lead">150+ Tutors have already joined the Force. Join Us as a Home Tutor or Coaching Institute in Delhi. Share Your Knowledge as well as Experience with the Young Minds. Make Some Extra Income without any Investment. Submit the Details below so that our team can contact you in a business day. Thank You!</p>
+    </div>
+  </div>
+
+
+<hr>
+<!-- 
+ -->
+
+
+<div class="container marketing" style="margin-top:50px">
+<div class='col-sm-6 col-sm-offset-3' style="padding-bottom: 30px;">
+
+
+
+<h1 class="text-align-center">Please Fill the Details Below</h1>
+
+  <form method="POST" action="/careers-query-response/">
+      {% csrf_token %}
+     {{ form|crispy }}
+    <input class="btn btn-primary" type="submit" value="Submit" />
+  </form>
+</div>
+</div>
+
+{% if message %} 
+  <script>
+      alert('{{ message }}');
+  
+  </script>
+ {% endif %}
+
+
+
+{% include 'footer.html' %}
+
+{% include 'javascript.html' %}
+</html>
