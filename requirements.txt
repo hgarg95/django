@@ -10,3 +10,4 @@ whitenoise==2.0.6
 gunicorn==19.4.5
 requests==2.9.1
 django-storages==1.4
+python-gcm

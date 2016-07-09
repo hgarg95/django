@@ -42,7 +42,8 @@ INSTALLED_APPS = (
     
     #third party apps
     'crispy_forms',
-    'storages',  
+    'storages',
+    'gcm',  
     # 'registration',
     #my apps
     'project',
@@ -58,8 +59,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
 )
-
 ROOT_URLCONF = 'sykopro.urls'
+
 
 TEMPLATES = [
     {

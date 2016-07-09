@@ -18,6 +18,8 @@ from math import sin, cos, sqrt, atan2, radians
 import demjson
 import urllib2
 import sys
+from gcm import *
+
 from django.apps import apps
 
 
@@ -272,15 +274,14 @@ def send_notify(request):
 	        'largeIcon': 'large_icon_url',
 	        'smallIcon': 'small_icon_url'}
 
-	# reg_id = ["db6EelYVv7g:APA91bHfLf3_zThHolzP1UlVyElgRVxP7iY8gBAYDH1hHGdw1mCaP8uls4OMMYhcpKbFu3hYx8rlasRHmn3JI15VptKlLy7dmsfjjlM-ShEsLkzFjeOeE9qa6Od-DMC0BNO2KvNzDR7P",
-	#           "fnygMEH_lko:APA91bGBvRIRWtn7ZCQI0FlMhWaX6cFJE5AfbNpXPpuS_Zk6MHyNZYpkfKfsP6mn_X8mwEol9wdzU3cX8Fgbde-cKSj_-j9YfXVkDaVwN2InRKWThxEjexTKk2ZGn3Fgtsll1nO2f0PR", 
-	#           "eB2R2ntrcvI:APA91bEhjH8hyR464L278562t9Sk1hvRrhBC_LCcKrCKaWVWvPEibDAWHbhWJjtlYZlZMz-yTKImb208wCnwTBWXlTOlKAfwUtAtHrv2KqLDTvVYut7UGvdw7YkzAjKVyXvkHfERrcQT"]
+	# reg_id = ["cdxt2aJC0bM:APA91bGw3X8AG2FSXyTHIIjplrtAstt5GcnnW5zSQN-zeVaKfmARQyLWnhqPTzMuFEImCm7HdzHohtQBrYYg-iWRHvYiXsBT_FfjXXE2AI7jkzhNHD5_sWU3b44WiQo8nHojzLCeQ8aY"]
 	dlist=[]
 	query = User.objects.all()
 	for instance in query:
 		reg_id = instance.device_id
 		dlist.append(reg_id)
-	response = json.dumps(gcm.json_request(registration_ids=dlist, data=data))
+	# gcm.plaintext_request(registration_id=reg_id,data=data)
+	response = json.dumps(gcm.json_request(registration_ids=reg_id, data=data))
 	return HttpResponse(response)    
 		
 @csrf_exempt
