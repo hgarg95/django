@@ -392,7 +392,7 @@ def update_rate(request):
 
 
 @csrf_exempt
-def orders_list_admin(request):
+def orders_admin(request):
 	uniquekey = request.POST.get("haddhogyibhencho")
 	if uniquekey == settings.UNIQUE_KEY:
 		query = Orders.objects.all()
