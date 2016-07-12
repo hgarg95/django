@@ -387,6 +387,7 @@ def update_rate(request):
 
 	if uniquekey == settings.UNIQUE_KEY:
 		p = RateList.objects.all().update(paper=paper,plastic=plastic,iron=iron,copper=copper,aluminium=aluminium,brass=brass,old_batteries=old_batteries,miscellaneous=miscellaneous)
+		return HttpResponse ("Success")
 	else:
 		return HttpResponse("Bad Request")
 
