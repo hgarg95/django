@@ -121,7 +121,7 @@ def admin_login_app(request):
 	upassword = request.POST.get("Password")
 	uniquekey = request.POST.get("haddhogyibhencho")
 	if uniquekey == settings.UNIQUE_KEY:
-		if uemail != "we3@sykopro" and upassword != "sykokabadi":
+		if uemail != "we3@sykopro827682969994.com" and upassword != "humteenomilkarekpapermillkholenge":
 			d={}
 			dlist=[]
 			d["name"]="Invalid Username OR Password"
@@ -270,19 +270,19 @@ def send_notify(request):
 	data = {'message': 'Hello, this is your notification message, We use this variable to store the message text.',
 	        'title': 'This place is for title of the notification',
 	        'tickerText': 'Ticker text for your notifications, Lollipop does not show ticker text by default',
-	        'BigpictureIcon': 'https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png',
-	        'largeIcon': 'large_icon_url',
-	        'smallIcon': 'small_icon_url'}
+	        # 'BigpictureIcon': 'https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png',
+	        'largeIcon': 'https://s3-us-west-2.amazonaws.com/elasticbeanstalk-us-west-2-644902922622/recycled-paper-1.jpg',
+	        'smallIcon': '"https://s3-us-west-2.amazonaws.com/elasticbeanstalk-us-west-2-644902922622/App+Icon+192x192.png"'}
 
 	# reg_id = ["cdxt2aJC0bM:APA91bGw3X8AG2FSXyTHIIjplrtAstt5GcnnW5zSQN-zeVaKfmARQyLWnhqPTzMuFEImCm7HdzHohtQBrYYg-iWRHvYiXsBT_FfjXXE2AI7jkzhNHD5_sWU3b44WiQo8nHojzLCeQ8aY"]
 	dlist=[]
-	query = User.objects.all()
+	query = User.objects.values_list('device_id',flat=True).distinct() # returns a list of tuples.
 	for instance in query:
-		reg_id = instance.device_id
+		reg_id = instance
 		dlist.append(reg_id)
 	# gcm.plaintext_request(registration_id=reg_id,data=data)
 	response = json.dumps(gcm.json_request(registration_ids=dlist, data=data))
-	return HttpResponse(response)    
+	return HttpResponse(response)
 		
 @csrf_exempt
 def update(request):
@@ -371,6 +371,63 @@ def rate_list(request):
 		return HttpResponse(json.dumps(dlist))
 	else:
 		return HttpResponse("Bad Request")
+
+
+@csrf_exempt
+def update_rate(request):
+	paper = request.POST.get("paper")
+	plastic = request.POST.get("plastic")
+	iron = request.POST.get("iron")
+	copper = request.POST.get("copper")
+	aluminium = request.POST.get("aluminium")
+	brass = request.POST.get("brass")
+	old_batteries = request.POST.get("old_batteries")
+	miscellaneous =request.POST.get("miscellaneous")
+	uniquekey = request.POST.get("haddhogyibhencho")
+
+	if uniquekey == settings.UNIQUE_KEY:
+		p = RateList.objects.all().update(paper=paper,plastic=plastic,iron=iron,copper=copper,aluminium=aluminium,brass=brass,old_batteries=old_batteries,miscellaneous=miscellaneous)
+	else:
+		return HttpResponse("Bad Request")
+
+
+@csrf_exempt
+def orders_list_admin(request):
+	uniquekey = request.POST.get("haddhogyibhencho")
+	if uniquekey == settings.UNIQUE_KEY:
+		query = Orders.objects.all()
+		d={}
+		dlist=[]
+		for instance in query:
+			if not instance.amount_paid:
+				d['address'] = instance.address
+				d['date'] = instance.date_of_pickup
+				d['order_id'] = instance.order_id
+				d['confirmation'] = str(instance.confirmation)
+				dlist.append(d.copy())
+		return HttpResponse(json.dumps(dlist))
+	else:
+		return HttpResponse("Bad Request")
+		
+
+
+@csrf_exempt
+def accept_order(request):
+	email = request.POST.get("email")
+	order_id = request.POST.get("order_id")
+	uniquekey = request.POST.get("haddhogyibhencho")
+
+	if uniquekey == settings.UNIQUE_KEY:
+		query = Orders.objects.filter(email_id=email, order_id=order_id).update(confirmation="True")
+		return HttpResponse ("Success")
+	else:
+		return HttpResponse ("Bad Request")
+
+
+
+
+
+
 
 
 
