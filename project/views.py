@@ -119,18 +119,19 @@ def signup_app(request):
 
 @csrf_exempt
 def order_amount(request):
-	# order_id = request.POST.get("order_id")
-	# paper = request.POST.get("paper")
-	# plastic = request.POST.get("plastic")
-	# iron = request.POST.get("iron")
-	# copper = request.POST.get("copper")
-	# aluminium = request.POST.get("aluminium")
-	# brass = request.POST.get("brass")
-	# old_batteries = request.POST.get("old_batteries")
-	# miscellaneous =request.POST.get("miscellaneous")
-	# amount = request.POST.get("amount")
-	# uniquekey = request.POST.get("haddhogyibhencho")
-	query = Orders.objects.filter(order_id="GOSYKO3").update(paper="66", plastic="plastic", iron="iron", aluminium="aluminium", copper="copper", brass="brass", old_batteries="old_batteries", miscellaneous="miscellaneous", amount_paid=55.0)
+	order_id = request.POST.get("order_id")
+	paper = request.POST.get("paper")
+	plastic = request.POST.get("plastic")
+	iron = request.POST.get("iron")
+	copper = request.POST.get("copper")
+	aluminium = request.POST.get("aluminium")
+	brass = request.POST.get("brass")
+	old_batteries = request.POST.get("old_batteries")
+	miscellaneous =request.POST.get("miscellaneous")
+	amount = request.POST.get("amount")
+	uniquekey = request.POST.get("haddhogyibhencho")
+	amt = float(amount)
+	query = Orders.objects.filter(order_id=order_id).update(paper=paper, plastic=plastic, iron=iron, aluminium=aluminium, copper=copper, brass=brass, old_batteries=old_batteries, miscellaneous=miscellaneous, amount_paid=amt)
 	return HttpResponse("Success")
 
 
