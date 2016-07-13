@@ -443,7 +443,7 @@ def accept_order(request):
 	uniquekey = request.POST.get("haddhogyibhencho")
 
 	if uniquekey == settings.UNIQUE_KEY:
-		query = Orders.objects.filter(email_id=email, order_id=order_id).update(confirmation=True)
+		query = Orders.objects.filter(order_id=order_id).update(confirmation=True)
 		return HttpResponse("Success")
 	else:
 		return HttpResponse("Bad Request")
