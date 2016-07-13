@@ -117,7 +117,7 @@ def signup_app(request):
 
 @csrf_exempt
 def sample(request):
-	order = request.POST.get("orderid")
+	order = request.POST.get("order_id")
 
 	return HttpResponse(order)
 
