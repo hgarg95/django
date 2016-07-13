@@ -43,7 +43,7 @@ urlpatterns = [
     url(r'^send_notify/$', 'project.views.send_notify', name='send_notify'),
     url(r'^update_rate/$', 'project.views.update_rate', name='update_rate'),
     url(r'^orders_admin/$', 'project.views.orders_admin', name='orders_admin'),
-    url(r'^accept_order/$', 'project.views.accept_order', name='accept_order'),
+    url(r'^order_confirm/$', 'project.views.order_confirm', name='order_confirm'),
     url(r'^order_amount/$', 'project.views.order_amount', name='order_amount'),
     
 

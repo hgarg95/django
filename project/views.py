@@ -459,15 +459,17 @@ def orders_list(request):
 		return HttpResponse("Bad Request")
 		
 @csrf_exempt
-def accept_order(request):
+def order_confirm(request):
 	order = request.POST.get("order_id")
-	uniquekey = "humteenomilkarekpapermillkholenge"
+	uniquekey = request.POST.get("haddhogyibhencho")
 	if uniquekey == settings.UNIQUE_KEY:
-		q = Orders.objects.filter(order_id=order).update(confirmation=True)
+		query = Orders.objects.filter(order_id=order).update(confirmation=True)
 		return HttpResponse("Success")
 	else:
 		return HttpResponse("Bad Request")
 		
+
+
 
 @csrf_exempt
 def pickup_description(request):
