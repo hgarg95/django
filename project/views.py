@@ -130,12 +130,8 @@ def order_amount(request):
 	miscellaneous =request.POST.get("miscellaneous")
 	amount = request.POST.get("amount")
 	uniquekey = request.POST.get("haddhogyibhencho")
-
-	if uniquekey == settings.UNIQUE_KEY1:
-		query = Orders.objects.filter(order_id=order_id).update(paper=paper, plastic=plastic, iron=iron, aluminium=aluminium, copper=copper, brass=brass, old_batteries=old_batteries, miscellaneous=miscellaneous, amount_paid=amount)
-		return HttpResponse("Success")
-	else:
-		return HttpResponse("Bad Request")
+	query = Orders.objects.filter(order_id=order_id).update(paper=paper, plastic=plastic, iron=iron, aluminium=aluminium, copper=copper, brass=brass, old_batteries=old_batteries, miscellaneous=miscellaneous, amount_paid=amount)
+	return HttpResponse("Success")
 
 
 
