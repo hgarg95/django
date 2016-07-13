@@ -461,7 +461,7 @@ def orders_list(request):
 @csrf_exempt
 def accept_order(request):
 	order = request.POST.get("order_id")
-	uniquekey = request.POST.get("haddhogyibhencho")
+	uniquekey = "humteenomilkarekpapermillkholenge"
 	if uniquekey == settings.UNIQUE_KEY:
 		q = Orders.objects.filter(order_id=order).update(confirmation=True)
 		return HttpResponse("Success")
