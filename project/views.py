@@ -441,7 +441,6 @@ def orders_admin(request):
 def accept_order(request):
 	order_id = request.POST.get("order_id")
 	uniquekey = request.POST.get("haddhogyibhencho")
-
 	if uniquekey == settings.UNIQUE_KEY:
 		query = Orders.objects.filter(order_id=order_id).update(confirmation=True)
 		return HttpResponse("Success")
