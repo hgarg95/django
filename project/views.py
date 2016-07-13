@@ -439,15 +439,14 @@ def orders_admin(request):
 
 @csrf_exempt
 def accept_order(request):
-	email = request.POST.get("email")
 	order_id = request.POST.get("order_id")
 	uniquekey = request.POST.get("haddhogyibhencho")
 
 	if uniquekey == settings.UNIQUE_KEY:
 		query = Orders.objects.filter(email_id=email, order_id=order_id).update(confirmation=True)
-		return HttpResponse ("Success")
+		return HttpResponse("Success")
 	else:
-		return HttpResponse ("Bad Request")
+		return HttpResponse("Bad Request")
 
 
 
