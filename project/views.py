@@ -118,8 +118,16 @@ def signup_app(request):
 @csrf_exempt
 def sample(request):
 	order = request.POST.get("order_id")
+	d={}
+	dlist=[]
+	d['response']=order
+	dlist.append(d)
+	return HttpResponse(json.dumps(dlist))
 
-	return HttpResponse(order)
+
+
+
+	# return HttpResponse(order)
 
 @csrf_exempt
 def order_amount(request):
@@ -180,11 +188,6 @@ def admin_login_app(request):
 	uniquekey = request.POST.get("haddhogyibhencho")
 	if uniquekey == settings.UNIQUE_KEY:
 		if uemail != "we3@sykopro827682969994.com" or upassword != "humteenomilkarekpapermillkholenge":
-			d={}
-			dlist=[]
-			d["name"]="Invalid Username OR Password"
-			dlist.append(d)
-			return HttpResponse(json.dumps(dlist))
 
 		else:
 			d={}
