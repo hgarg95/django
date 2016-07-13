@@ -120,7 +120,7 @@ def sample(request):
 	order = request.POST.get("order_id")
 	d={}
 	dlist=[]
-	d["response"]=order
+	d["response"]="order"
 	dlist.append(d)
 	return HttpResponse(json.dumps(dlist))
 
