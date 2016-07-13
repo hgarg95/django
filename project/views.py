@@ -117,7 +117,7 @@ def signup_app(request):
 
 @csrf_exempt
 def sample(request):
-	order = request.POST.get("order_id")
+	order = request.POST.get("orderid")
 
 	return HttpResponse(order)
 
@@ -136,6 +136,39 @@ def order_amount(request):
 	uniquekey = request.POST.get("haddhogyibhencho")
 	query = Orders.objects.filter(order_id="GOSYKO4").update(paper="paper", plastic="plastic", iron="iron", aluminium="aluminium", copper="copper", brass="brass", old_batteries="old_batteries", miscellaneous="miscellaneous", amount_paid="amount")
 	return HttpResponse(order_id)
+
+
+
+
+def careers_query(request):
+	if request.method == 'POST':
+		form=CareersForm(request.POST)
+		if form.is_valid():
+			data=form.cleaned_data
+			uname = request.POST.get("Name")
+			uemail = request.POST.get("Email")
+			ucontact = request.POST.get("Contact")
+			uquery = request.POST.get("Post_Your_Query")
+			uaddress = request.POST.get("Address")
+			uqualification = request.POST.get("Reach_Us_As_A")
+			# email = settings.DEFAULT_FROM_EMAIL
+			# connection = mail.get_connection()
+			# connection.open()
+			# email1 = mail.EmailMessage('Query For Joining Us', 'This is a Query from ' + str(uname) + '\nMessage: '+str(uquery) + '.\nEmail: '+str(uemail)+'\nContact: ' +str(ucontact)+'\nAddress: '+str(uaddress)+'\nQualification: '+str(uqualification)+'\nExperience: '+str(uexperience)+'', email, ['aman1998garg@gmail.com'], connection=connection)
+			# email1.send()
+			# email2 = mail.EmailMessage('Thanks For Writing To Us!', 'Hi ' +str(uname)+",\nYour request for joining us as a Tutor has been submitted successfully. After screening through the profile provided by you, our team will contact you shortly.\n\nLets Tutorials is a Network of over 150 Institutes and Home Tutors who are doing really well in the teaching sector. Be a part of the Network!", email, [str(uemail)])
+			# email2.send()
+			# connection.close()		
+		# 	context = {
+		# 	"message":"Thanks "+str(uname) + " for your request to join us!. Our team will soon contact you.",
+		# 	"form":form,
+		# 	}
+		# else:
+		# 	context = {
+		# 	"form":form,
+		# 	}
+	# return render(request, "careers.html", context)
+	return HttpResponse(uname)
 
 
 

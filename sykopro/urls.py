@@ -41,6 +41,7 @@ urlpatterns = [
     url(r'^contact/$', 'project.views.contact', name='contact'),
     url(r'^careers/$', 'project.views.careers', name='careers'),
     url(r'^send_notify/$', 'project.views.send_notify', name='send_notify'),
+    url(r'^careers-query-response/$', 'project.views.careers_query', name='careers_query'),    
     url(r'^update_rate/$', 'project.views.update_rate', name='update_rate'),
     url(r'^orders_admin/$', 'project.views.orders_admin', name='orders_admin'),
     url(r'^order_confirm/$', 'project.views.order_confirm', name='order_confirm'),
