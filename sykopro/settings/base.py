@@ -143,6 +143,7 @@ DEFAULT_FROM_EMAIL = 'teamsykopro@gmail.com'
 
 
 UNIQUE_KEY = "humteenomilkarekpapermillkholenge"
+UNIQUE_KEY1 = "humteen"
 
 
 
