@@ -435,22 +435,6 @@ def orders_admin(request):
 	else:
 		return HttpResponse("Bad Request")
 		
-
-
-@csrf_exempt
-def accept_order(request):
-	order_id = request.POST.get("order_id")
-	uniquekey = request.POST.get("haddhogyibhencho")
-	query = Orders.objects.filter(order_id=order_id).update(confirmation=True)
-	return HttpResponse("Success")
-
-
-
-
-
-
-
-
 @csrf_exempt
 def orders_list(request):
 	email=request.POST.get("email")
@@ -471,6 +455,16 @@ def orders_list(request):
 				d['amount'] = instance.amount_paid
 			dlist.append(d.copy())
 		return HttpResponse(json.dumps(dlist))
+	else:
+		return HttpResponse("Bad Request")
+		
+@csrf_exempt
+def accept_order(request):
+	order = request.POST.get("order_id")
+	uniquekey = request.POST.get("haddhogyibhencho")
+	if uniquekey == settings.UNIQUE_KEY:	
+		q = Orders.objects.filter(order_id=order).update(confirmation=True)
+		return HttpResponse("Success")
 	else:
 		return HttpResponse("Bad Request")
 		
