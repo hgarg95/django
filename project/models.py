@@ -36,7 +36,7 @@ class Orders(models.Model):
 	brass = models.CharField(null=True,max_length=50)
 	old_batteries = models.CharField(null=True,max_length=50)
 	miscellaneous = models.CharField(null=True,max_length=50)
-	amount_paid = models.FloatField(null=True)
+	amount_paid = models.CharField(null=True, max_length=100)
 	request_for = models.CharField(max_length=300)
 	confirmation = models.BooleanField()
 	date_of_pickup = models.CharField(max_length=50,null=True)
