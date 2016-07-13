@@ -119,8 +119,8 @@ def signup_app(request):
 
 @csrf_exempt
 def order_amount(request):
-	uemail = request.POST.get("email")
 	order_id = request.POST.get("order_id")
+	paper = request.POST.get("paper")
 	plastic = request.POST.get("plastic")
 	iron = request.POST.get("iron")
 	copper = request.POST.get("copper")
@@ -128,11 +128,11 @@ def order_amount(request):
 	brass = request.POST.get("brass")
 	old_batteries = request.POST.get("old_batteries")
 	miscellaneous =request.POST.get("miscellaneous")
-	amount = request.POST.get("amount_paid")
+	amount = request.POST.get("amount")
 	uniquekey = request.POST.get("haddhogyibhencho")
 
 	if uniquekey == settings.UNIQUE_KEY:
-		query = Orders.objects.filter(email_id=email,order_id=order_id).update(paper=paper, plastic=plastic, iron=iron, aluminium=aluminium, copper=copper, brass=brass, old_batteries=old_batteries, miscellaneous=miscellaneous, amount_paid=amount)
+		query = Orders.objects.filter(order_id=order_id).update(paper=paper, plastic=plastic, iron=iron, aluminium=aluminium, copper=copper, brass=brass, old_batteries=old_batteries, miscellaneous=miscellaneous, amount_paid=amount)
 		return HttpResponse("Success")
 	else:
 		return HttpResponse("Bad Request")
