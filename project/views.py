@@ -117,12 +117,21 @@ def signup_app(request):
 
 @csrf_exempt
 def sample(request):
-	order = request.POST.get("order_id")
-	d={}
-	dlist=[]
-	d["response"]="order"
-	dlist.append(d)
-	return HttpResponse(json.dumps(dlist))
+	paper = request.POST.get("paper")
+	plastic = request.POST.get("plastic")
+	iron = request.POST.get("iron")
+	copper = request.POST.get("copper")
+	aluminium = request.POST.get("aluminium")
+	brass = request.POST.get("brass")
+	old_batteries = request.POST.get("old_batteries")
+	miscellaneous =request.POST.get("miscellaneous")
+	uniquekey = request.POST.get("haddhogyibhencho")
+	return HttpResponse(paper)
+	# d={}
+	# dlist=[]
+	# d["response"]="order"
+	# dlist.append(d)
+	# return HttpResponse(json.dumps(dlist))
 
 
 
