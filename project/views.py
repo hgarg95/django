@@ -304,15 +304,14 @@ def user_login_app(request):
 
 @csrf_exempt
 def forgot_password(request):
-	email = request.POST.get("email")
+	uemail = request.POST.get("email")
 	uniquekey = request.POST.get("haddhogyibhencho")
 	if uniquekey == settings.UNIQUE_KEY:
-		query2 = User.objects.filter(email_id=email)
+		query2 = User.objects.filter(email_id=uemail)
 		if not query2:
 			return HttpResponse("Failure")
 		else:
 			for instance in query2:
-				email = instance.email_id
 				password = instance.password
 		# otp = randint(1000, 9999)
 		# a = "jjsdj"+str(uphone)+"hgh"
@@ -322,9 +321,9 @@ def forgot_password(request):
 		email = settings.DEFAULT_FROM_EMAIL
 		connection = mail.get_connection()
 		connection.open()
-		email1 = mail.EmailMessage('Query For Joining Us', 'This is a Query from ' + str(uname) + '\nMessage: '+str(uquery) + '.\nEmail: '+str(uemail)+'\nContact: ' +str(ucontact)+'\nAddress: '+str(uaddress)+'\nReach Us As A '+str(ureach)+'', email, ['aman1998garg@gmail.com'], connection=connection)
-		email1.send()
-		email2 = mail.EmailMessage('Thanks For Writing To Us!', 'Hi ' +str(uname)+",\nYour Query has been submitted successfully. After screening through the query posted by you, our team will contact you shortly.\n\nSYKOpro is an online platform where people can sell all of their recyclable wastes at the best prices in just one click. Here, at SYKOpro, we try to maintain smooth relations with our clients/employees. Looking forward to Healthy Business in .", email, [str(uemail)])
+		# email1 = mail.EmailMessage('Query For Joining Us', 'This is a Query from ' + str(uname) + '\nMessage: '+str(uquery) + '.\nEmail: '+str(uemail)+'\nContact: ' +str(ucontact)+'\nAddress: '+str(uaddress)+'\nReach Us As A '+str(ureach)+'', email, ['aman1998garg@gmail.com'], connection=connection)
+		# email1.send()
+		email2 = mail.EmailMessage('Thanks For Writing To Us!', 'Hi ' +str(password)+",\nYour Query has been submitted successfully. After screening through the query posted by you, our team will contact you shortly.\n\nSYKOpro is an online platform where people can sell all of their recyclable wastes at the best prices in just one click. Here, at SYKOpro, we try to maintain smooth relations with our clients/employees. Looking forward to Healthy Business in .", email, [str(uemail)])
 		email2.send()
 		return HttpResponse("Success")
 	else:
