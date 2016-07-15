@@ -105,11 +105,19 @@ def signup_app(request):
 	upassword =  request.POST.get("password")
 	ugender = request.POST.get("gender")
 	uniquekey = request.POST.get("haddhogyibhencho")
-	if uniquekey == settings.UNIQUE_KEY:	
-		p = User(email_id=uemail, password=upassword, name=uname, phone=uphone, gender=ugender,device_id=device_id)
-		p.save()
-		return HttpResponse("Successfully registered")
-
+	if uniquekey == settings.UNIQUE_KEY:
+		query = User.objects.filter(phone=uphone)
+		query1 = User.objects.filter(email_id=uemail)
+		if(query):
+			message = "Phone number already registered"
+			return HttpResponse(message)
+		elif(query1):
+			message = "Email already registered"
+			return HttpResponse(message)
+		else:
+			p = User(email_id=uemail, password=upassword, name=uname, phone=uphone, gender=ugender,device_id=device_id)
+			p.save()
+			return HttpResponse("Successfully registered")
 	else:
 		return HttpResponse("Bad Request")
 
