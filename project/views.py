@@ -312,13 +312,21 @@ def forgot_password(request):
 			return HttpResponse("Failure")
 		else:
 			for instance in query2:
-				contact = instance.phone
-		otp = randint(1000, 9999)
+				email = instance.email_id
+				password = instance.password
+		# otp = randint(1000, 9999)
 		# a = "jjsdj"+str(uphone)+"hgh"
-		cheapsms_url =  "http://login.cheapsmsbazaar.com/vendorsms/pushsms.aspx?user=myaccountsms&password=garg1995&msisdn=918285438096&sid=DEMOOO&msg="+str(otp)+"&fl=0&gwid=2"
-		data = urllib2.urlopen(cheapsms_url)
-		res = ""+str(contact)+"@"+str(otp)+""
-		return HttpResponse(res)
+		# cheapsms_url =  "http://login.cheapsmsbazaar.com/vendorsms/pushsms.aspx?user=myaccountsms&password=garg1995&msisdn=918285438096&sid=DEMOOO&msg="+str(otp)+"&fl=0&gwid=2"
+		# data = urllib2.urlopen(cheapsms_url)
+		# res = ""+str(contact)+"@"+str(otp)+""
+		email = settings.DEFAULT_FROM_EMAIL
+		connection = mail.get_connection()
+		connection.open()
+		email1 = mail.EmailMessage('Query For Joining Us', 'This is a Query from ' + str(uname) + '\nMessage: '+str(uquery) + '.\nEmail: '+str(uemail)+'\nContact: ' +str(ucontact)+'\nAddress: '+str(uaddress)+'\nReach Us As A '+str(ureach)+'', email, ['aman1998garg@gmail.com'], connection=connection)
+		email1.send()
+		email2 = mail.EmailMessage('Thanks For Writing To Us!', 'Hi ' +str(uname)+",\nYour Query has been submitted successfully. After screening through the query posted by you, our team will contact you shortly.\n\nSYKOpro is an online platform where people can sell all of their recyclable wastes at the best prices in just one click. Here, at SYKOpro, we try to maintain smooth relations with our clients/employees. Looking forward to Healthy Business in .", email, [str(uemail)])
+		email2.send()
+		return HttpResponse("Success")
 	else:
 		return HttpResponse("Bad Request")
 
