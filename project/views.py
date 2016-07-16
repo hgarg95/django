@@ -140,7 +140,7 @@ def order_upload(request):
 		q = Orders.objects.filter(order_id=order_id).update(confirmation=True)
 		return HttpResponse("Success")
 	else:
-		return HttpResponse(paper)
+		return HttpResponse("paper")
 	# d={}
 	# dlist=[]
 	# d["response"]="order"
