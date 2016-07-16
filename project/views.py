@@ -124,7 +124,7 @@ def signup_app(request):
 
 
 @csrf_exempt
-def sample(request):
+def order_upload(request):
 	paper = request.POST.get("paper")
 	plastic = request.POST.get("plastic")
 	iron = request.POST.get("iron")
@@ -133,8 +133,14 @@ def sample(request):
 	brass = request.POST.get("brass")
 	old_batteries = request.POST.get("old_batteries")
 	miscellaneous =request.POST.get("miscellaneous")
+	amount = request.POST.get("amount")
+	order_id = request.POST.get("order_id")
 	uniquekey = request.POST.get("haddhogyibhencho")
-	return HttpResponse(paper)
+	if uniquekey == settings.UNIQUE_KEY:
+		q = Orders.objects.filter(order_id=order_id).update(confirmation=True)
+		return HttpResponse("Success")
+	else:
+		return HttpResponse(paper)
 	# d={}
 	# dlist=[]
 	# d["response"]="order"
@@ -323,7 +329,7 @@ def forgot_password(request):
 		connection.open()
 		# email1 = mail.EmailMessage('Query For Joining Us', 'This is a Query from ' + str(uname) + '\nMessage: '+str(uquery) + '.\nEmail: '+str(uemail)+'\nContact: ' +str(ucontact)+'\nAddress: '+str(uaddress)+'\nReach Us As A '+str(ureach)+'', email, ['aman1998garg@gmail.com'], connection=connection)
 		# email1.send()
-		email2 = mail.EmailMessage('Thanks For Writing To Us!', 'Hi ' +str(password)+",\nYour Query has been submitted successfully. After screening through the query posted by you, our team will contact you shortly.\n\nSYKOpro is an online platform where people can sell all of their recyclable wastes at the best prices in just one click. Here, at SYKOpro, we try to maintain smooth relations with our clients/employees. Looking forward to Healthy Business in .", email, [str(uemail)])
+		email2 = mail.EmailMessage('Hi,\n Your profile information is as follows.\n Email: ' +str(uemail)+"\n Password: "+str(password)+"\n", email, [str(uemail)])
 		email2.send()
 		return HttpResponse("Success")
 	else:
