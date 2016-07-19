@@ -19,10 +19,13 @@ Including another URLconf
 
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.views.generic import TemplateView
 
 urlpatterns = [
     url(r'^$', 'project.views.home', name='home'),
     url(r'^home/$', 'project.views.home', name='home'),
+    url(r'^sitemap\.xml$', TemplateView.as_view(template_name='sitemap.xml', content_type='text/xml')),
+    url(r'^robots\.txt$',TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),    
     url(r'^Otp_app/$', 'project.views.Otp_app', name='Otp_app'),
     url(r'^signup_app/$', 'project.views.signup_app', name='signup_app'),
     url(r'^admin_login_app/$', 'project.views.admin_login_app', name='admin_login_app'),    
