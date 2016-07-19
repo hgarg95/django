@@ -1,0 +1,26 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+
+<url>
+  <loc>http://www.sykopro.com/</loc> 
+  <changefreq>monthly</changefreq> 
+  <priority>1.00</priority> 
+</url>
+<url>
+  <loc>http://www.sykopro.com/home/</loc> 
+  <changefreq>monthly</changefreq> 
+  <priority>0.80</priority> 
+</url>
+<url>
+  <loc>http://www.sykopro.com/contact/</loc> 
+  <changefreq>monthly</changefreq> 
+  <priority>0.80</priority> 
+</url>
+<url>
+  <loc>http://www.sykopro.com/careers/</loc> 
+  <changefreq>monthly</changefreq> 
+  <priority>0.80</priority> 
+</url>
+</urlset>
