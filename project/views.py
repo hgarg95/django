@@ -444,7 +444,7 @@ def update_check(request):
 	ver_name = request.POST.get("name")
 	uniquekey = request.POST.get("haddhogyibhencho")
 	if uniquekey == settings.UNIQUE_KEY:
-		current_ver = 2
+		current_ver = 1
 		used_ver = int(ver_code)
 		if used_ver<current_ver:
 			return HttpResponse("Update@1")

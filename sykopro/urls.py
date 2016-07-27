@@ -62,7 +62,7 @@ urlpatterns = [
 
 
 
-    url(r'^admin/', admin.site.urls),
+    url(r'^teensyko/', admin.site.urls),
 
     
 ]
