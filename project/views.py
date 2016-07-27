@@ -716,9 +716,9 @@ def pickup_email(request):
 		email = settings.DEFAULT_FROM_EMAIL
 		connection = mail.get_connection()
 		connection.open()
-		email1 = mail.EmailMessage('Subject', 'Here is the message', email, ['aman1998garg@gmail.com'], connection=connection)
+		email1 = mail.EmailMessage('Pickup Confirmation', 'Hello '+str(name)+'!\n Thanks for requesting a SYKO to pick your scrap. Your requested date is '+str(date_of_pickup)+'. Our SYKO executive will soon reach you.', email, [str(email_id)], connection=connection)
 		email1.send()
-		email2 = mail.EmailMessage('Subject here', 'Here is the message', email, ['garg1995speaker@gmail.com'])
+		email2 = mail.EmailMessage('PickUp Request', 'Request For: '+str(request_for)+'\n Email: '+str(email_id)+'\n Date: '+str(date_of_pickup)+'\n Address: '+str(address)+'', email, ['garg1995speaker@gmail.com'])
 		email2.send()
 		connection.close()	
 		return HttpResponse("Success")
