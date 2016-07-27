@@ -444,12 +444,12 @@ def update_check(request):
 	ver_name = request.POST.get("name")
 	uniquekey = request.POST.get("haddhogyibhencho")
 	if uniquekey == settings.UNIQUE_KEY:
-		current_ver = 1
+		current_ver = 2
 		used_ver = int(ver_code)
 		if used_ver<current_ver:
-			return HttpResponse("Update@1@Sorry we are busy")
+			return HttpResponse("Update@0")
 		else:
-			return HttpResponse("No Update@Sorry we are busy")
+			return HttpResponse("No Update")
 	else:
 		return HttpResponse("Bad Request")
 
