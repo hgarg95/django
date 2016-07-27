@@ -447,7 +447,7 @@ def update_check(request):
 		current_ver = 1
 		used_ver = int(ver_code)
 		if used_ver<current_ver:
-			return HttpResponse("Update@1")
+			return HttpResponse("Update@1@Sorry we are busy")
 		else:
 			return HttpResponse("No Update")
 	else:
