@@ -403,7 +403,8 @@ def send_notify(request):
 	        'largeIcon': 'https://s3-us-west-2.amazonaws.com/elasticbeanstalk-us-west-2-644902922622/paper.jpg',
 	        'smallIcon': '"https://s3-us-west-2.amazonaws.com/elasticbeanstalk-us-west-2-644902922622/App+Icon+192x192.png"'}
 
-	reg_id = ["crywAy_Soc4:APA91bHeJ8ImV5c47BvBP-0Db-LXrrs32N8zspcm__1-bRf1IFyP1xv8hIUmZGKWAXqgXDTzmuZcSNLYBrsRETM6P1zB1KLulODAscZkesvmg6i5OHX8ctb1Oqjw-TWt09s5Hw3atxij"]
+	reg_id = ["crywAy_Soc4:APA91bHeJ8ImV5c47BvBP-0Db-LXrrs32N8zspcm__1-bRf1IFyP1xv8hIUmZGKWAXqgXDTzmuZcSNLYBrsRETM6P1zB1KLulODAscZkesvmg6i5OHX8ctb1Oqjw-TWt09s5Hw3atxij",
+	          "eaPS9Ud6c0g:APA91bGW72r-xIiWiqei1zElF64tXt6DU-xp_7Ex36wlqCgJwoHshfoyNLt9h7CGWeaYcbyGgc2dHWC7a9BPWwNaTg-zUmUaBBg2lS5P06bqx95YXe7Fi4EiFrDMVYLNRBaxRv8AfAFI"]
 	# dlist=[]
 	# query = User.objects.values_list('device_id',flat=True).distinct() # returns a list of tuples.
 	# for instance in query:
