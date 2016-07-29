@@ -400,17 +400,17 @@ def send_notify(request):
 	        'title': 'This place is for title of the notification',
 	        'tickerText': 'Ticker text for your notifications, Lollipop does not show ticker text by default',
 	        # 'BigpictureIcon': 'https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png',
-	        'largeIcon': 'https://s3-us-west-2.amazonaws.com/elasticbeanstalk-us-west-2-644902922622/recycled-paper-1.jpg',
+	        'largeIcon': 'https://s3-us-west-2.amazonaws.com/elasticbeanstalk-us-west-2-644902922622/paper.jpg',
 	        'smallIcon': '"https://s3-us-west-2.amazonaws.com/elasticbeanstalk-us-west-2-644902922622/App+Icon+192x192.png"'}
 
-	# reg_id = ["cdxt2aJC0bM:APA91bGw3X8AG2FSXyTHIIjplrtAstt5GcnnW5zSQN-zeVaKfmARQyLWnhqPTzMuFEImCm7HdzHohtQBrYYg-iWRHvYiXsBT_FfjXXE2AI7jkzhNHD5_sWU3b44WiQo8nHojzLCeQ8aY"]
-	dlist=[]
-	query = User.objects.values_list('device_id',flat=True).distinct() # returns a list of tuples.
-	for instance in query:
-		reg_id = instance
-		dlist.append(reg_id)
-	# gcm.plaintext_request(registration_id=reg_id,data=data)
-	response = json.dumps(gcm.json_request(registration_ids=dlist, data=data))
+	reg_id = ["e5zW4PG1eJU:APA91bEI1ymrNH_sFQxzabQbpufz11l_ReOPFFoFH066D3eWh38-dH15aMzxKnXL9J8vEXJp2ZvT-rDMFc56vvtYB4BsqkSeSu-dYFzuwocf_QD4r83XmbS9jiQhfir574boncMcCXzj"]
+	# dlist=[]
+	# query = User.objects.values_list('device_id',flat=True).distinct() # returns a list of tuples.
+	# for instance in query:
+	# 	reg_id = instance
+	# 	dlist.append(reg_id)
+	# # gcm.plaintext_request(registration_id=reg_id,data=data)
+	response = json.dumps(gcm.json_request(registration_ids=reg_id, data=data))
 	return HttpResponse(response)
 		
 @csrf_exempt
@@ -444,9 +444,9 @@ def update_check(request):
 	ver_name = request.POST.get("name")
 	uniquekey = request.POST.get("haddhogyibhencho")
 	if uniquekey == settings.UNIQUE_KEY:
-		current_ver = 2 #to be done 3 next tym#
+		current_ver = 3 #to be done 3 next tym#
 		used_ver = int(ver_code)
-		if used_ver>current_ver:
+		if used_ver<current_ver:
 			return HttpResponse("Update@0")
 		else:
 			return HttpResponse("No Update")
