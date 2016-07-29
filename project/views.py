@@ -395,7 +395,7 @@ def send_notify(request):
 	#   headers = {'Authorization': "AIzaSyBrgfg_u2BTW5wwJzZ3qRJuhAIsN8kmDlI",'Content-Type': 'application/json'})
 
 
-	gcm = GCM("AIzaSyDNQSKawzSs5Mrt6iwQvIqcNMtHygiKf5I")
+	gcm = GCM("AIzaSyDOpGF7utwkPGjcv8INWzz8oS7_Q8wflU0")
 	data = {'message': 'Hello, this is your notification message, We use this variable to store the message text.',
 	        'title': 'This place is for title of the notification',
 	        'tickerText': 'Ticker text for your notifications, Lollipop does not show ticker text by default',
@@ -403,7 +403,7 @@ def send_notify(request):
 	        'largeIcon': 'https://s3-us-west-2.amazonaws.com/elasticbeanstalk-us-west-2-644902922622/paper.jpg',
 	        'smallIcon': '"https://s3-us-west-2.amazonaws.com/elasticbeanstalk-us-west-2-644902922622/App+Icon+192x192.png"'}
 
-	reg_id = ["e5zW4PG1eJU:APA91bEI1ymrNH_sFQxzabQbpufz11l_ReOPFFoFH066D3eWh38-dH15aMzxKnXL9J8vEXJp2ZvT-rDMFc56vvtYB4BsqkSeSu-dYFzuwocf_QD4r83XmbS9jiQhfir574boncMcCXzj"]
+	reg_id = ["eaPS9Ud6c0g:APA91bGW72r-xIiWiqei1zElF64tXt6DU-xp_7Ex36wlqCgJwoHshfoyNLt9h7CGWeaYcbyGgc2dHWC7a9BPWwNaTg-zUmUaBBg2lS5P06bqx95YXe7Fi4EiFrDMVYLNRBaxRv8AfAFI"]
 	# dlist=[]
 	# query = User.objects.values_list('device_id',flat=True).distinct() # returns a list of tuples.
 	# for instance in query:
