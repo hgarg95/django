@@ -396,8 +396,8 @@ def send_notify(request):
 
 
 	gcm = GCM("AIzaSyDOpGF7utwkPGjcv8INWzz8oS7_Q8wflU0")
-	data = {'message': 'Hello, this is your notification message, We use this variable to store the message text.',
-	        'title': 'This place is for title of the notification',
+	data = {'message': 'Cleaning Home Sundays! Sell all of Your Kabaad',
+	        'title': 'Sell Your Kabaad This Morning!',
 	        'tickerText': 'Ticker text for your notifications, Lollipop does not show ticker text by default',
 	        # 'BigpictureIcon': 'https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png',
 	        'largeIcon': 'https://s3-us-west-2.amazonaws.com/elasticbeanstalk-us-west-2-644902922622/paper.jpg',
