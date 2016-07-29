@@ -403,7 +403,9 @@ def send_notify(request):
 	        'largeIcon': 'https://s3-us-west-2.amazonaws.com/elasticbeanstalk-us-west-2-644902922622/paper.jpg',
 	        'smallIcon': '"https://s3-us-west-2.amazonaws.com/elasticbeanstalk-us-west-2-644902922622/App+Icon+192x192.png"'}
 
-	reg_id = ["fVmLB4tyQ2A:APA91bFDibowlCI4Yez9zTIIok7BDwwUCMkT7slzIkBfBTj5ZFG2wSIn5ZeglKY98EbzDSzx2lQ4xVUPiNMujUzKWZAlvMm3cDGwa5cqbGp57iR_5hsiEhoqvID_irpH8AADQuw_a4pt"]
+	reg_id = ["fVmLB4tyQ2A:APA91bFDibowlCI4Yez9zTIIok7BDwwUCMkT7slzIkBfBTj5ZFG2wSIn5ZeglKY98EbzDSzx2lQ4xVUPiNMujUzKWZAlvMm3cDGwa5cqbGp57iR_5hsiEhoqvID_irpH8AADQuw_a4pt",
+	          "dKjBtGnXevY:APA91bF4jpP67U0vT-1qiEDR2TtwLjj88Spjym6tl1XflD22KlvvlHX-uT5Efueg0AfMcQ-kjoP1X45kX48HcgDKRG_By6MbmqZWDyFUEKc8Mty8PXk0rfLz_hFvVq_ZOWPgSOoeuz2-",
+	          "daKFirpWvtM:APA91bGMMtU4NT40jAT7funcwFjBMHzr4K5B9KH0akxu87xreHf2xQIrwhPX0KLRV1rdxREKGAxjunM3W7rJLBvEtpp3dxRIZlYX4lQp9JK88ythDU-T7arDC7PXAvj7AorskofY4f-q"]
 	# dlist=[]
 	# query = User.objects.values_list('device_id',flat=True).distinct() # returns a list of tuples.
 	# for instance in query:
