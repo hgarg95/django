@@ -395,7 +395,7 @@ def send_notify(request):
 	#   headers = {'Authorization': "AIzaSyBrgfg_u2BTW5wwJzZ3qRJuhAIsN8kmDlI",'Content-Type': 'application/json'})
 
 
-	gcm = GCM("AIzaSyDcYAL_bo29kyisezHQRWfuGxuQv4zDieo")
+	gcm = GCM("AIzaSyDNQSKawzSs5Mrt6iwQvIqcNMtHygiKf5I")
 	data = {'message': 'Hello, this is your notification message, We use this variable to store the message text.',
 	        'title': 'This place is for title of the notification',
 	        'tickerText': 'Ticker text for your notifications, Lollipop does not show ticker text by default',
@@ -444,9 +444,9 @@ def update_check(request):
 	ver_name = request.POST.get("name")
 	uniquekey = request.POST.get("haddhogyibhencho")
 	if uniquekey == settings.UNIQUE_KEY:
-		current_ver = 1 #to be done 3 next tym#
+		current_ver = 2 #to be done 3 next tym#
 		used_ver = int(ver_code)
-		if used_ver<current_ver:
+		if used_ver>current_ver:
 			return HttpResponse("Update@0")
 		else:
 			return HttpResponse("No Update")
