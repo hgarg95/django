@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = 'yqbj4k-xy8419luw9nu2go-#pnn+(2_236=xj_1e&#888o_it3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
@@ -81,17 +81,16 @@ TEMPLATES = [
 WSGI_APPLICATION = 'sykopro.wsgi.application'
 
 
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'Syko',
-#         'USER': 'postgres',
-#         'PASSWORD': 'garg1995',
-#         # 'HOST': 'localhost',
-#         # 'PORT': '8000',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'syko',
+        'USER': 'postgres',
+        'PASSWORD': 'garg1995',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
 
 # DATABASES = {
 #     'default': {
@@ -102,16 +101,16 @@ WSGI_APPLICATION = 'sykopro.wsgi.application'
 
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dctsthkbsa92oo',               
-        'USER': 'hwdowwejpqnedl',
-        'PASSWORD': 'Gsim1OaQeHw0kBz2QYRn3QmIhC',
-        'HOST': 'ec2-54-243-249-144.compute-1.amazonaws.com',
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'dctsthkbsa92oo',               
+#         'USER': 'hwdowwejpqnedl',
+#         'PASSWORD': 'Gsim1OaQeHw0kBz2QYRn3QmIhC',
+#         'HOST': 'ec2-54-243-249-144.compute-1.amazonaws.com',
+#         'PORT': '5432',
+#     }
+# }
 
     
 

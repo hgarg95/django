@@ -29,7 +29,7 @@ class Orders(models.Model):
 	address = models.CharField(max_length=500)
 	timestamp = models.DateTimeField(auto_now_add=True,auto_now=False)	
 	paper = models.CharField(null=True,max_length=50)
-	plastic = models.CharField(null=True,max_length=50)
+	plastic = models.CharField(null=True,max_length=49)
 	iron = models.CharField(null=True,max_length=50)
 	aluminium = models.CharField(null=True,max_length=50)
 	copper = models.CharField(null=True,max_length=50)

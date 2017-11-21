@@ -1,6 +1,6 @@
 from django import forms
 from django.core.exceptions import ValidationError
-from django.forms.widgets import RadioFieldRenderer
+#from django.forms.widgets import RadioFieldRenderer
 from django.core.validators import RegexValidator
 
 
@@ -30,7 +30,7 @@ class CareersForm(forms.Form):
 
   s="Choose Any One"
   Company  = 'Company'
-  Educational_Institute = 'Educational Institute'
+  Educational_Institute = 'Educationalnstitutess'
   Investor = 'Investor'
   Merger = 'Merger'
   Media_Partner = 'Media Partner'

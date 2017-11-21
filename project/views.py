@@ -182,14 +182,14 @@ def careers_query(request):
 			uquery = request.POST.get("Post_Your_Query")
 			uaddress = request.POST.get("Address")
 			ureach = request.POST.get("Reach_Us_As_A")
-			email = settings.DEFAULT_FROM_EMAIL
-			connection = mail.get_connection()
-			connection.open()
-			email1 = mail.EmailMessage('Query For Joining Us', 'This is a Query from ' + str(uname) + '\nMessage: '+str(uquery) + '.\nEmail: '+str(uemail)+'\nContact: ' +str(ucontact)+'\nAddress: '+str(uaddress)+'\nReach Us As A '+str(ureach)+'', email, ['aman1998garg@gmail.com'], connection=connection)
-			email1.send()
-			email2 = mail.EmailMessage('Thanks For Writing To Us!', 'Hi ' +str(uname)+",\nYour Query has been submitted successfully. After screening through the query posted by you, our team will contact you shortly.\n\nSYKOpro is an online platform where people can sell all of their recyclable wastes at the best prices in just one click. Here, at SYKOpro, we try to maintain smooth relations with our clients/employees. Looking forward to Healthy Business in .", email, [str(uemail)])
-			email2.send()
-			connection.close()
+			# email = settings.DEFAULT_FROM_EMAIL
+			# connection = mail.get_connection()
+			# connection.open()
+			# email1 = mail.EmailMessage('Query For Joining Us', 'This is a Query from ' + str(uname) + '\nMessage: '+str(uquery) + '.\nEmail: '+str(uemail)+'\nContact: ' +str(ucontact)+'\nAddress: '+str(uaddress)+'\nReach Us As A '+str(ureach)+'', email, ['aman1998garg@gmail.com'], connection=connection)
+			# email1.send()
+			# email2 = mail.EmailMessage('Thanks For Writing To Us!', 'Hi ' +str(uname)+",\nYour Query has been submitted successfully. After screening through the query posted by you, our team will contact you shortly.\n\nSYKOpro is an online platform where people can sell all of their recyclable wastes at the best prices in just one click. Here, at SYKOpro, we try to maintain smooth relations with our clients/employees. Looking forward to Healthy Business in .", email, [str(uemail)])
+			# email2.send()
+			# connection.close()
 			context = {
 			"message":"Thanks "+str(uname) +"! Your Query has been submitted. Our team will contact you soon.",
 			"form":form,
@@ -214,14 +214,14 @@ def contact_query(request):
 			uemail = request.POST.get("Email")
 			ucontact = request.POST.get("Contact")
 			uquery = request.POST.get("Post_Your_Query")
-			email = settings.DEFAULT_FROM_EMAIL
-			connection = mail.get_connection()
-			connection.open()
-			email1 = mail.EmailMessage('Query For Contact', 'This is a Query from ' + str(uname) + '\n Message: '+str(uquery) + '.\nEmail: '+str(uemail)+'\n Contact: ' +str(ucontact)+'', email, ['aman1998garg@gmail.com'], connection=connection)
-			email1.send()
-			email2 = mail.EmailMessage('Thanks For Writing To Us!', 'Hi ' +str(uname)+",\nYour query has been submitted successfully. Here, we always thrive to provide Best Customer Support to our Users. Our team will contact you soon.", email, [str(uemail)])
-			email2.send()
-			connection.close()		
+			# email = settings.DEFAULT_FROM_EMAIL
+			# connection = mail.get_connection()
+			# connection.open()
+			# email1 = mail.EmailMessage('Query For Contact', 'This is a Query from ' + str(uname) + '\n Message: '+str(uquery) + '.\nEmail: '+str(uemail)+'\n Contact: ' +str(ucontact)+'', email, ['aman1998garg@gmail.com'], connection=connection)
+			# email1.send()
+			# email2 = mail.EmailMessage('Thanks For Writing To Us!', 'Hi ' +str(uname)+",\nYour query has been submitted successfully. Here, we always thrive to provide Best Customer Support to our Users. Our team will contact you soon.", email, [str(uemail)])
+			# email2.send()
+			# connection.close()		
 			context = {
 			"message":"Thanks "+str(uname) + " for contacting us. Our team will contact you soon.",
 			"form":form1,
