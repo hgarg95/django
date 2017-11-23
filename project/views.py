@@ -16,7 +16,6 @@ from django.core.serializers.json import DjangoJSONEncoder
 from django.contrib.staticfiles.templatetags.staticfiles import static
 from math import sin, cos, sqrt, atan2, radians
 import demjson
-import urllib2
 import sys
 from gcm import *
 
