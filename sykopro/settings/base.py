@@ -81,16 +81,16 @@ TEMPLATES = [
 WSGI_APPLICATION = 'sykopro.wsgi.application'
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'syko',
-        'USER': 'postgres',
-        'PASSWORD': 'garg1995',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'syko',
+#         'USER': 'postgres',
+#         'PASSWORD': 'garg1995',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 
 # DATABASES = {
 #     'default': {
@@ -101,16 +101,16 @@ DATABASES = {
 
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'dctsthkbsa92oo',               
-#         'USER': 'hwdowwejpqnedl',
-#         'PASSWORD': 'Gsim1OaQeHw0kBz2QYRn3QmIhC',
-#         'HOST': 'ec2-54-243-249-144.compute-1.amazonaws.com',
-#         'PORT': '5432',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd85q7t8785jbol',               
+        'USER': 'refyluzoiuuthg',
+        'PASSWORD': '04ba2ab7deff190eb4865b883463a2376b0bf3eabc4554a60991fc280762a2b9',
+        'HOST': 'ec2-54-225-88-191.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
+}
 
     
 
